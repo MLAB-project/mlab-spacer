@@ -1,6 +1,6 @@
 MLAB_grid = 10.16;
 
-module mlab_frame(x, y, pedestal_height = 9){
+module mlab_frame(x, y, pedestal_height = 9, grid_en = -1){
 
 x_holes = x;
 y_holes = y;
@@ -51,4 +51,20 @@ difference () {
                 cylinder (h = pedestal_height, r= mount_hole/2, $fn=20);
     }    
 }
+
+
+    if((grid_en == -1 && (x > 5 || y > 5)) || (grid_en == 1)){
+        for(xp = [1:x-2]){
+            translate([(xp+0.5)*MLAB_grid, MLAB_grid*0.5, 0]) cube([1, (y-1)*MLAB_grid, thickness]);
+        }
+        for(yp = [1:y-2]){
+            translate([MLAB_grid*0.5, (yp+0.5)*MLAB_grid, 0]) cube([(x-1)*MLAB_grid, 1, thickness]);
+        }
+    }
 }
+
+
+
+//mlab_frame(7, 5);
+
+
