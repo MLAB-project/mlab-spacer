@@ -12,8 +12,7 @@ pile_radius = 4;        // radius of pile around screw
 x_size = x_holes * MLAB_grid ;
 y_size = y_holes * MLAB_grid ;
 mount_hole = 3.5;
-//nut_size = 6.8;  //size suitable for PLA material
-nut_size = 6.7;  //size suitable for ABS material
+nut_size = 6.55;
 clear = 0.175;
 
 
